@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 public partial class UDF
 {
-    [Microsoft.SqlServer.Server.SqlFunction]
+    [Microsoft.SqlServer.Server.SqlFunction(IsDeterministic =true, IsPrecise =true)]
     public static SqlString Match(String input, String pattern)
     {
         Regex r = new Regex(pattern);
@@ -17,6 +17,7 @@ public partial class UDF
         return value;
     }
 
+    [Microsoft.SqlServer.Server.SqlFunction(IsDeterministic = true, IsPrecise = true)]
     public static SqlString GroupMatch(String input, String pattern, String group)
     {
         Regex r = new Regex(pattern);
@@ -26,7 +27,7 @@ public partial class UDF
         return value;
     }
 
-    [Microsoft.SqlServer.Server.SqlFunction]
+    [Microsoft.SqlServer.Server.SqlFunction(IsDeterministic = true, IsPrecise = true)]
     public static SqlString Replace(String input, String pattern, String replacement)
     {
         Regex r = new Regex(pattern);
