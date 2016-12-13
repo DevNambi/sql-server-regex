@@ -15,6 +15,9 @@ This code adds regular expression functionality to SQL Server using scalar and t
 Currently only SQL Server 2012 is supported. Support for SQL 2008, 2014, and 2016 is coming very soon.
 
 
+## Tests
+
+
 
 ## Further Resources
 
