@@ -5,7 +5,8 @@ The RegexMatch() function is a SQL CLR function that exposes the [System.Text.Re
 Let's look at a few examples, inspired by a handy [Regular Expressions tutorial](http://www.regular-expressions.info/examples.html)
 
 
-**IP Addresses**
+### IP Addresses
+
 Let's pull an IPv4 address out of a string. 
 
 ```
@@ -24,8 +25,9 @@ Note: this simple example will match some non-valid IP addresses as well (e.g. 9
   (25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b'
 
 
-**Floating Point Numbers**
+### Floating Point Numbers
 
+Let's pull out a floating-point number. Then let's cast it to a decimal.
 
 ```
 declare @regex_pattern varchar(max) = '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$'
