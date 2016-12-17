@@ -20,3 +20,6 @@ from dbo.RegexSplit('How do I split an arbitrary string into words?', @regex_pat
 select *
 from dbo.RegexSplit('Does this work if   the words are oddly-formed?', @regex_pattern)
 ```
+
+select *
+from dbo.RegexSplit('testtesttest','t')

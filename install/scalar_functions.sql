@@ -1,6 +1,3 @@
-use Scratch
-go
-
 drop function dbo.RegexMatch
 go
 

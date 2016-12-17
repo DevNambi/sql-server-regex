@@ -18,3 +18,6 @@ select dbo.RegexMatch('The HTML is <TAG>one<TAG>two</TAG>one</TAG>', @regex_patt
 
 select dbo.RegexMatch('<A>Hello world</A> I''ve missed you', @regex_pattern)
 ```
+
+select *
+from dbo.RegexMatches('test test test','\w+')
