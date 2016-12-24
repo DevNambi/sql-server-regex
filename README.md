@@ -8,7 +8,7 @@ This code exposes regular expression functions to SQL Server, so you can run reg
 
 The [RegexMatch()](https://github.com/DevNambi/sql-server-regex/blob/master/examples/match.md) function lets you run a match against a string using a regular expression, and returns the first result.
 
-![Match SSMS example](/install/match-1.png)
+![Match SSMS example](/examples/match-1.png)
 
 See the documentation on  for more examples.
 
