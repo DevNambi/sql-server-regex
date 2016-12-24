@@ -4,6 +4,8 @@ The RegexMatch() function is a SQL CLR function that exposes the [System.Text.Re
 
 Let's look at a few examples, inspired by a handy [Regular Expressions tutorial](http://www.regular-expressions.info/examples.html)
 
+![Match SSMS example](/match-1.png)
+
 
 ### IP Addresses
 

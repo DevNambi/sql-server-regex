@@ -6,9 +6,11 @@ This code exposes regular expression functions to SQL Server, so you can run reg
 
 **Match**
 
-The Match() function lets you run a regular expression match against a string to find. 
+The [RegexMatch()](https://github.com/DevNambi/sql-server-regex/blob/master/examples/match.md) function lets you run a match against a string using a regular expression, and returns the first result.
 
-See the documentation on [RegexMatch()](https://github.com/DevNambi/sql-server-regex/blob/master/examples/match.md) for more examples.
+![Match SSMS example](/install/match-1.png)
+
+See the documentation on  for more examples.
 
 **Group Match**
 
