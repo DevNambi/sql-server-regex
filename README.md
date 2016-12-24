@@ -1,10 +1,12 @@
 # SQL Server Regex
 
-This code exposes regular expression functions to SQL Server, so you can run regular expressions using SQL queries. This is done by exposing the C# regex libraries using SQL CLR scalar- and table-valued functions.
+This code exposes regular expression functions to SQL Server, so you can run regular expressions using SQL queries. This is done by exposing C# [Regex functions](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions.regex(v=vs.110).aspx) using SQL CLR scalar- and table-valued functions.
 
 ## Examples
 
 **Match**
+
+The Match() function lets you run a regular expression match against a string to find. 
 
 See the documentation on [RegexMatch()](https://github.com/DevNambi/sql-server-regex/blob/master/examples/match.md) for more examples.
 
@@ -26,6 +28,21 @@ See the documentation on [RegexSplit()](https://github.com/DevNambi/sql-server-r
 
 
 ## Installation
+
+You can install sql-server-regex on most versions of SQL Server:
+
+* [SQL Server 2016](https://github.com/DevNambi/sql-server-regex/blob/master/install/sql-2016.md)
+* [SQL Server 2014](https://github.com/DevNambi/sql-server-regex/blob/master/install/sql-2014.md)
+* [SQL Server 2012](https://github.com/DevNambi/sql-server-regex/blob/master/install/sql-2012.md)
+* [SQL Server 2008 and 2008 R2](https://github.com/DevNambi/sql-server-regex/blob/master/install/sql-2008.md)
+* [SQL Server 2005](https://github.com/DevNambi/sql-server-regex/blob/master/install/sql-2005.md)
+
+You can also install sql-server-regex onto [AWS RDS](https://github.com/DevNambi/sql-server-regex/blob/master/install/aws-rds.md).
+
+
+
+
+
 
 
 
