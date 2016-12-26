@@ -2,7 +2,7 @@
 
 ![SQL Regex Logo](/images/sql-regex-logo.png)
 
-SQL-Server-Regex gives you the power to run regular expressions inside SQL Server queries. It works by using SQL CLR functions to call the C# [Regex](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions.regex.aspx) functionality.
+SQL-Server-Regex gives you the power to run regular expressions inside SQL Server queries. It works by using SQL CLR functions to call the C# [System.Text.RegularExpressions](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions.regex.aspx) library.
 
 # Examples
 
