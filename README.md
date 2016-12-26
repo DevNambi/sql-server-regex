@@ -39,7 +39,7 @@ The [RegexSplit()](/examples/split.md) table-valued function lets pass a regular
 
 # Installation
 
-You can install sql-server-regex on most versions of SQL Server:
+You can install sql-server-regex on most versions of SQL Server. This works the same for virtual machines or cloud VMs.
 
 * [SQL Server 2016](/install/sql-2016.md)
 * [SQL Server 2014](/install/sql-2014.md)

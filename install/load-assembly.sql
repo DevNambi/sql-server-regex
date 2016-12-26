@@ -1,4 +1,4 @@
---DROP FUNCTIONS FIRST
+-- First, drop the functions if they already exist.
 drop function dbo.RegexMatch
 go
 
@@ -15,14 +15,18 @@ drop function dbo.RegexSplit
 go
 
 
---declare @FileLocation nvarchar(4000) = 'D:\GitHub\sql-server-regex\dev\bin\Debug\dev.dll'
-
+-- Second, drop the assembly if it already exists
 drop assembly RegexAssembly
 go
 
--- see https://msdn.microsoft.com/en-us/library/ms189524.aspx for details
+
+-- Third, finally, create the assembly
+declare @AssemblyLocation varchar(8000);
+
+set @AssemblyLocation = '--SET LOCATION HERE, e.g. C:\Install\sql-server-regex-2016.dll'
+
 CREATE ASSEMBLY RegexAssembly  
-FROM  'D:\GitHub\sql-server-regex\src\bin\Debug\dev.dll'
+FROM  @AssemblyLocation
 WITH PERMISSION_SET = SAFE;  
 
-
+-- see https://msdn.microsoft.com/en-us/library/ms189524.aspx for details
