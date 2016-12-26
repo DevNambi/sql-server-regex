@@ -2,31 +2,31 @@
 
 ![SQL Regex Logo](/images/sql-regex-logo.png)
 
-This code exposes regular expression functions to SQL Server, so you can run regular expressions using SQL queries. This is done by exposing C# [Regex functions](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions.regex(v=vs.110).aspx) using SQL CLR scalar- and table-valued functions.
+SQL-Server-Regex gives you the power to run regular expressions inside SQL Server queries. It works by using SQL CLR functions to call the C# [Regex](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions.regex(v=vs.110).aspx) functionality.
 
 ## Examples
 
 **Match**
 
-The [RegexMatch()](/examples/match.md) function lets you run a match against a string using a regular expression, and returns the first result.
+The [RegexMatch()](/examples/match.md) scalar function lets you call a regular expression against a string, and returns the first result if there is a match.
 
 ![Match SSMS example](/images/match-1.png)
 
+**Matches**
+
+The [RegexMatches()](/examples/matches.md) table-valued function lets you call a regular expression against a string, and returns all matches
+
 **Group Match**
 
-See the documentation on [RegexGroupMatch()](/examples/group-match.md) for more examples.
+The [RegexGroupMatch()](/examples/group-match.md) scalar function lets you call a regular expression with *named groups* against a string, and returns the group name you specify.
 
 **Replace**
 
-See the documentation on [RegexReplace()](/examples/replace.md) for more examples.
-
-**Matches**
-
-See the documentation on [RegexMatches()](/examples/matches.md) for more examples.
+The [RegexReplace()](/examples/replace.md) scalar function lets you call a regular expression against a string with a *replacement* value, and replaces all the matched entries with the replacement.
 
 **Split**
 
-See the documentation on [RegexSplit()](/examples/split.md) for more examples.
+The [RegexSplit()](/examples/split.md) table-valued function lets pass a regular expression against a string to split it into pieces, and returns the pieces.
 
 
 ## Installation
@@ -45,7 +45,3 @@ You can also install sql-server-regex onto [AWS RDS](/install/aws-rds.md).
 ## Tests
 
 
-
-## Further Resources
-
-* https://blogs.msdn.microsoft.com/sqlclr/2005/06/29/working-with-regular-expressions/
