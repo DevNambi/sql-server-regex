@@ -2,42 +2,42 @@
 
 ![SQL Regex Logo](/images/sql-regex-logo.png)
 
-SQL-Server-Regex gives you the power to run regular expressions inside SQL Server queries. It works by using SQL CLR functions to call the C# [Regex](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions.regex(v=vs.110).aspx) functionality.
+SQL-Server-Regex gives you the power to run regular expressions inside SQL Server queries. It works by using SQL CLR functions to call the C# [Regex](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions.regex.aspx) functionality.
 
-## Examples
+# Examples
 
-**Match**
+### Match
 
 The [RegexMatch()](/examples/match.md) scalar function lets you call a regular expression against a string, and returns the first result if there is a match.
 
 ![Match SSMS example](/images/match-1.png)
 
-**Matches**
+### Matches
 
 The [RegexMatches()](/examples/matches.md) table-valued function lets you call a regular expression against a string, and returns all matches.
 
 ![Matches SSMS example](/images/matches-1.png)
 
-**Group Match**
+### Group Match
 
 The [RegexGroupMatch()](/examples/group-match.md) scalar function lets you call a regular expression with *named groups* against a string, and returns the group name you specify.
 
 ![Group Match SSMS example](/images/groupmatch-1.png)
 
-**Replace**
+### Replace
 
-The [RegexReplace()](/examples/replace.md) scalar function lets you call a regular expression against a string with a *replacement* value, and replaces all the matched entries with the replacement. You can also match multiple parts of a string and re-arrange them using references.
+The [RegexReplace()](/examples/replace.md) scalar function lets you call a regular expression to find-and-replace inside a string. You can also match parts of a string and re-arrange them using references.
 
 ![Replace SSMS example](/images/replace-1.png)
 
-**Split**
+### Split
 
 The [RegexSplit()](/examples/split.md) table-valued function lets pass a regular expression against a string to split it into pieces, and returns the pieces.
 
 ![Split SSMS example](/images/split-1.png)
 
 
-## Installation
+# Installation
 
 You can install sql-server-regex on most versions of SQL Server:
 
@@ -48,8 +48,3 @@ You can install sql-server-regex on most versions of SQL Server:
 * [SQL Server 2005](/install/sql-2005.md)
 
 You can also install sql-server-regex onto [AWS RDS](/install/aws-rds.md).
-
-
-## Tests
-
-
