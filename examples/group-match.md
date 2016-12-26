@@ -1,3 +1,12 @@
+# Group Match
+
+![SQL Regex Logo](/images/sql-regex-logo.png)
+
+The RegexGroupMatch() function is a SQL CLR function that exposes the [System.Text.RegularExpressions](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions(v=vs.110).aspx)' [Match()](https://msdn.microsoft.com/en-us/library/b9712a7w(v=vs.110).aspx) method. It allows you to pass along a regular expression with a named group and retrieve that result.
+
+Let's look at a few examples, inspired by a handy [Regular Expressions tutorial](http://www.regular-expressions.info/examples.html)
+
+
 use Scratch
 go
 

@@ -1,29 +1,7 @@
-use Scratch
-go
+# Matches
 
-drop function dbo.RegexMatch
-go
+![SQL Regex Logo](/images/sql-regex-logo.png)
 
-drop function dbo.RegexGroupMatch
-go
+The RegexMatches() function is a SQL CLR function that exposes the [System.Text.RegularExpressions](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions(v=vs.110).aspx)' [Match()](https://msdn.microsoft.com/en-us/library/b9712a7w(v=vs.110).aspx) method, so you can use it using T-SQL queries. 
 
-drop function dbo.RegexReplace
-go
-
--- see https://msdn.microsoft.com/en-us/library/ms186755.aspx for details
-
-CREATE FUNCTION dbo.RegexMatch (@input nvarchar(max), @pattern nvarchar(max))
-RETURNS nvarchar(max)
-AS EXTERNAL NAME [RegexAssembly].[UDF].[Match]
-go
-
-CREATE FUNCTION dbo.RegexGroupMatch (@input nvarchar(max), @pattern nvarchar(max), @group nvarchar(max))
-RETURNS nvarchar(max)
-AS EXTERNAL NAME [RegexAssembly].[UDF].[GroupMatch]
-go
-
-CREATE FUNCTION dbo.RegexReplace (@input nvarchar(max), @pattern nvarchar(max), @replacement nvarchar(max))
-RETURNS nvarchar(max)
-AS EXTERNAL NAME [RegexAssembly].[UDF].[Replace]
-go
-
+Let's look at a few examples, inspired by another handy [Regular Expressions tutorial](http://www.regular-expressions.info/examples.html)
