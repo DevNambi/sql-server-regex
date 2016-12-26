@@ -14,19 +14,27 @@ The [RegexMatch()](/examples/match.md) scalar function lets you call a regular e
 
 **Matches**
 
-The [RegexMatches()](/examples/matches.md) table-valued function lets you call a regular expression against a string, and returns all matches
+The [RegexMatches()](/examples/matches.md) table-valued function lets you call a regular expression against a string, and returns all matches.
+
+![Matches SSMS example](/images/matches-1.png)
 
 **Group Match**
 
 The [RegexGroupMatch()](/examples/group-match.md) scalar function lets you call a regular expression with *named groups* against a string, and returns the group name you specify.
 
+![Group Match SSMS example](/images/groupmatch-1.png)
+
 **Replace**
 
-The [RegexReplace()](/examples/replace.md) scalar function lets you call a regular expression against a string with a *replacement* value, and replaces all the matched entries with the replacement.
+The [RegexReplace()](/examples/replace.md) scalar function lets you call a regular expression against a string with a *replacement* value, and replaces all the matched entries with the replacement. You can also match multiple parts of a string and re-arrange them using references.
+
+![Replace SSMS example](/images/replace-1.png)
 
 **Split**
 
 The [RegexSplit()](/examples/split.md) table-valued function lets pass a regular expression against a string to split it into pieces, and returns the pieces.
+
+![Split SSMS example](/images/split-1.png)
 
 
 ## Installation

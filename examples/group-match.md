@@ -2,36 +2,19 @@
 
 ![SQL Regex Logo](/images/sql-regex-logo.png)
 
-The RegexGroupMatch() function is a SQL CLR function that exposes the [System.Text.RegularExpressions](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions(v=vs.110).aspx)' [Match()](https://msdn.microsoft.com/en-us/library/b9712a7w(v=vs.110).aspx) method. It allows you to pass along a regular expression with a named group and retrieve that result.
+RegexGroupMatch() is a scalar function that lets you run a regular expression using *named groups* against a string. It returns the match for the group you've named. RegexGroupMatch() is a SQL CLR function that exposes the [System.Text.RegularExpressions](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions(v=vs.110).aspx)' [Match()](https://msdn.microsoft.com/en-us/library/b9712a7w(v=vs.110).aspx) method.
 
 Let's look at a few examples, inspired by a handy [Regular Expressions tutorial](http://www.regular-expressions.info/examples.html)
 
 
-use Scratch
-go
+### Screenshot
 
-drop function dbo.RegexMatches
-go
+![Group Match SSMS example](/images/groupmatch-1.png)
 
-drop function dbo.RegexSplit
-go
+### Retrieve the domain of an email address
 
--- http://msdn.microsoft.com/en-us/library/ms131103.aspx
+```
+declare @regex_pattern varchar(max) = '[_]*([a-z0-9]+(\.|_*)?)+@(?<domain>([a-z][a-z0-9-]+(\.|-*\.))+[a-z]{2,6})'
 
-CREATE FUNCTION dbo.RegexMatches (@input nvarchar(max), @pattern nvarchar(max))
-RETURNS TABLE (Position int, Match NVARCHAR(max))  
-EXTERNAL NAME [RegexAssembly].[UDF].[Matches] 
-go
-
-CREATE FUNCTION dbo.RegexSplit (@input nvarchar(max), @pattern nvarchar(max))
-RETURNS TABLE (Position int, Match NVARCHAR(max))
-EXTERNAL NAME [RegexAssembly].[UDF].[Split] 
-go
-
-
-
-select *
-from dbo.RegexMatches('test test test','\w+')
-
-select *
-from dbo.RegexSplit('testtesttest','t')
+select dbo.RegexGroupMatch('My email address is fakeemail@hotmail.com', @regex_pattern, 'domain')
+```

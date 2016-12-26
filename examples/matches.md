@@ -2,24 +2,23 @@
 
 ![SQL Regex Logo](/images/sql-regex-logo.png)
 
-The RegexMatches() function is a SQL CLR function that exposes the [System.Text.RegularExpressions](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions(v=vs.110).aspx)' [Match()](https://msdn.microsoft.com/en-us/library/b9712a7w(v=vs.110).aspx) method, so you can use it using T-SQL queries. 
+RegexMatches() is a table-valued function that lets you run a regular expression against a string. All of the matched 'chunks' inside the string are returned. RegexMatches() is a SQL CLR function that exposes the [System.Text.RegularExpressions](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions(v=vs.110).aspx)' [Match()](https://msdn.microsoft.com/en-us/library/b9712a7w(v=vs.110).aspx) method.
 
 Let's look at a few examples, inspired by another handy [Regular Expressions tutorial](http://www.regular-expressions.info/examples.html)
 
 
+### Screenshot
+
+![Regex Matches](/images/matches-1.png)
 
 
-**Grabbing HTML Tags**
+### Grabbing HTML Tags
 
 Let's grab HTML tags out of text.
 
 ```
 declare @regex_pattern varchar(max) = '<([A-Z][A-Z0-9]*)\b[^>]*>(.*?)</\1>'
 
-select dbo.RegexMatch('The HTML is <TAG>one<TAG>two</TAG>one</TAG>', @regex_pattern)
-
-select dbo.RegexMatch('<A>Hello world</A> I''ve missed you', @regex_pattern)
-```
-
 select *
-from dbo.RegexMatches('test test test','\w+')
+from dbo.RegexMatches('The HTML is <TAG>one</TAG><TAG>two</TAG>', @regex_pattern)
+```
