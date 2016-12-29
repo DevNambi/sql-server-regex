@@ -250,3 +250,5 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+examples/Scratch.sql
+examples/StackOverflow Example 1 - .sql
