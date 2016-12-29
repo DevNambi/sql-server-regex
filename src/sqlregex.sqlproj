@@ -27,7 +27,7 @@
     <FileUpgradeFlags>0</FileUpgradeFlags>
     <UpgradeBackupLocation>D:\GitHub\sql-server-regex\dev\Backup\</UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql90DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <Name>sqlregex</Name>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{b6018d2c-b441-410f-8804-3a73fdcceb6b}</ProjectGuid>

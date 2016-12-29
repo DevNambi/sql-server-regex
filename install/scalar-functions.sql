@@ -1,11 +1,21 @@
-drop function dbo.RegexMatch
+if OBJECT_ID('dbo.RegexMatch') is not null
+begin
+	exec ('drop function dbo.RegexMatch');
+end
 go
 
-drop function dbo.RegexGroupMatch
+if OBJECT_ID('dbo.RegexGroupMatch') is not null
+begin
+	exec ('drop function dbo.RegexGroupMatch');
+end
 go
 
-drop function dbo.RegexReplace
+if OBJECT_ID('dbo.RegexReplace') is not null
+begin
+	exec ('drop function dbo.RegexReplace');
+end
 go
+
 
 -- see https://msdn.microsoft.com/en-us/library/ms186755.aspx for details
 

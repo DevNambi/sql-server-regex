@@ -7,53 +7,79 @@ using System.Collections.Generic;
 
 public partial class UDF
 {
-    [Microsoft.SqlServer.Server.SqlFunction(IsDeterministic =true, IsPrecise =true)]
+    [Microsoft.SqlServer.Server.SqlFunction(IsDeterministic = true, IsPrecise = true)]
     public static SqlString Match(String input, String pattern)
     {
-        Regex r = new Regex(pattern);
-        Match m = r.Match(input);
+        if (String.IsNullOrEmpty(input) || String.IsNullOrEmpty(pattern))
+        {
+            return new SqlString(null);
+        }
+        else
+        {
+            Regex r = new Regex(pattern);
+            Match m = r.Match(input);
 
-        SqlString value = m.Success ? m.Value : null;
-        return value;
+            return new SqlString(m.Success ? m.Value : null);
+        }
     }
 
     [Microsoft.SqlServer.Server.SqlFunction(IsDeterministic = true, IsPrecise = true)]
     public static SqlString GroupMatch(String input, String pattern, String group)
     {
-        Regex r = new Regex(pattern);
-        Group g = r.Match(input).Groups[group];
+        if (String.IsNullOrEmpty(input) || String.IsNullOrEmpty(pattern) || String.IsNullOrEmpty(group))
+        {
+            return new SqlString(null);
+        }
+        else
+        { 
+            Regex r = new Regex(pattern);
+            Group g = r.Match(input).Groups[group];
 
-        SqlString value = g.Success ? g.Value : null;
-        return value;
+            return new SqlString(g.Success ? g.Value : null);
+        }
     }
 
     [Microsoft.SqlServer.Server.SqlFunction(IsDeterministic = true, IsPrecise = true)]
     public static SqlString Replace(String input, String pattern, String replacement)
     {
-        Regex r = new Regex(pattern);
-        return new SqlString(r.Replace(input, replacement));
+        if (String.IsNullOrEmpty(input) || String.IsNullOrEmpty(pattern) || String.IsNullOrEmpty(replacement))
+        {
+            return new SqlString(null);
+        }
+        else
+        {
+            Regex r = new Regex(pattern);
+            return new SqlString(r.Replace(input, replacement));
+        }
     }
 
-    [SqlFunction(DataAccess = DataAccessKind.Read, FillRowMethodName = "FillMatches", TableDefinition = "Position int, MatchText nvarchar(max)")]
+    [SqlFunction(DataAccess = DataAccessKind.None, FillRowMethodName = "FillMatches", TableDefinition = "Position int, MatchText nvarchar(max)")]
     public static IEnumerable Matches(String input, String pattern)
     {
         List<RegexMatch> MatchCollection = new List<RegexMatch>();
-        foreach (Match m in Regex.Matches(input, pattern))
+        if (!String.IsNullOrEmpty(input) && !String.IsNullOrEmpty(pattern))
         {
-            MatchCollection.Add(new RegexMatch(m.Index, m.Value));
+            //only run through the matches if the inputs have non-empty, non-null strings
+            foreach (Match m in Regex.Matches(input, pattern))
+            {
+                MatchCollection.Add(new RegexMatch(m.Index, m.Value));
+            }
         }
-
         return MatchCollection;
     }
 
-    [SqlFunction(DataAccess = DataAccessKind.Read, FillRowMethodName = "FillMatches", TableDefinition = "Position int, MatchText nvarchar(max)")]
+    [SqlFunction(DataAccess = DataAccessKind.None, FillRowMethodName = "FillMatches", TableDefinition = "Position int, MatchText nvarchar(max)")]
     public static IEnumerable Split(String input, String pattern)
     {
         List<RegexMatch> MatchCollection = new List<RegexMatch>();
-        String[] splits = Regex.Split(input, pattern);
-        for (int i=0; i < splits.Length; i++)
+        if (!String.IsNullOrEmpty(input) && !String.IsNullOrEmpty(pattern))
         {
-            MatchCollection.Add(new RegexMatch(i, splits[i]));
+            //only run through the splits if the inputs have non-empty, non-null strings
+            String[] splits = Regex.Split(input, pattern);
+            for (int i = 0; i < splits.Length; i++)
+            {
+                MatchCollection.Add(new RegexMatch(i, splits[i]));
+            }
         }
 
         return MatchCollection;

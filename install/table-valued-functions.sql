@@ -1,7 +1,13 @@
-drop function dbo.RegexMatches
+if OBJECT_ID('dbo.RegexMatches') is not null
+begin
+	exec ('drop function dbo.RegexMatches');
+end
 go
 
-drop function dbo.RegexSplit
+if OBJECT_ID('dbo.RegexSplit') is not null
+begin
+	exec ('drop function dbo.RegexSplit');
+end
 go
 
 -- http://msdn.microsoft.com/en-us/library/ms131103.aspx
