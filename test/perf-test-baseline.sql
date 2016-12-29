@@ -1,0 +1,60 @@
+/*
+-- Performance test - baseline
+*/
+
+-- TEST 1: GENERATE THE ROWS INTO A TEMP TABLE
+if object_id('tempdb..#results') is not null
+begin
+	exec ('drop table #results');
+end
+go
+
+declare @StartTime datetime, @EndTime datetime
+
+set @StartTime = getdate();
+
+;WITH x AS 
+(
+  SELECT TOP (1000) [object_id], name from sys.all_objects
+)
+SELECT n = ROW_NUMBER() OVER (ORDER BY x.[object_id])
+	,joint_name = x.name + y.name
+into #results
+FROM x CROSS JOIN x AS y ORDER BY n;
+
+set @EndTime = getdate();
+
+drop table #results;
+
+select RunTimeInSec = datediff(ms, @StartTime,@EndTime) / 1000.0
+go 10
+
+
+
+
+-- TEST 2: USE THE T-SQL SUBSTRING FUNCTION
+if object_id('tempdb..#results') is not null
+begin
+	exec ('drop table #results');
+end
+go
+
+declare @StartTime datetime, @EndTime datetime
+
+set @StartTime = getdate();
+
+;WITH x AS 
+(
+  SELECT TOP (1000) [object_id], name from sys.all_objects
+)
+SELECT n = ROW_NUMBER() OVER (ORDER BY x.[object_id])
+	,joint_name = SUBSTRING(x.name + y.name,1,LEN(x.name + y.name) - 2)
+into #results
+FROM x CROSS JOIN x AS y ORDER BY n;
+
+set @EndTime = getdate();
+
+drop table #results;
+
+select RunTimeInSec = datediff(ms, @StartTime,@EndTime) / 1000.0
+go 10
