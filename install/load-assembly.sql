@@ -1,17 +1,32 @@
 -- First, drop the functions if they already exist.
-drop function dbo.RegexMatch
+if OBJECT_ID('dbo.RegexMatch') is not null
+begin
+	exec ('drop function dbo.RegexMatch');
+end
 go
 
-drop function dbo.RegexGroupMatch
+if OBJECT_ID('dbo.RegexGroupMatch') is not null
+begin
+	exec ('drop function dbo.RegexGroupMatch');
+end
 go
 
-drop function dbo.RegexReplace
+if OBJECT_ID('dbo.RegexReplace') is not null
+begin
+	exec ('drop function dbo.RegexReplace');
+end
 go
 
-drop function dbo.RegexMatches
+if OBJECT_ID('dbo.RegexMatches') is not null
+begin
+	exec ('drop function dbo.RegexMatches');
+end
 go
 
-drop function dbo.RegexSplit
+if OBJECT_ID('dbo.RegexSplit') is not null
+begin
+	exec ('drop function dbo.RegexSplit');
+end
 go
 
 
