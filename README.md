@@ -55,3 +55,8 @@ This work has been tested, both for functionality and performance. See for yours
 
 * [Unit Testing](/test/unit-tests.md)
 * [Performance Testing](/test/perf-tests.md)
+
+# Resources
+
+* [CLR Table-Valued Functions](https://msdn.microsoft.com/en-us/library/ms131103.aspx)
+* [Introduction to SQL Server Table-Valued Functions](https://www.mssqltips.com/sqlservertip/2582/introduction-to-sql-server-clr-table-valued-functions/)
