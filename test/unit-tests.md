@@ -1,8 +1,5 @@
 # Unit Tests
 
-There are several unit tests for each of the functions
-
-
 
 ## Expected Behavior
 
@@ -15,13 +12,15 @@ There are several unit tests for each of the functions
 
 ## Tests
 
-* There are 5 unit test scripts, one per function. 
+There are 5 unit test scripts, one per function. There are several unit tests in each.
+
 
 * [Match](/test/unit-test-match.sql)
 * [Matches](/test/unit-test-matches.sql)
 * [GroupMatch](/test/unit-test-groupmatch.sql)
 * [Split](/test/unit-test-split.sql)
 * [Replace](/test/unit-test-replace.sql)
+
 
 ## Running the Tests
 

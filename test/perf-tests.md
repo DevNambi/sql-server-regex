@@ -1,10 +1,10 @@
 # Performance Tests
 
-There are several performance tests for each of the functions
+There are several performance tests for each of the functions. 
 
 ## Baseline Performance
 
-The performance tests are against a dataset of a million rows, generated from sys.all_objects. My thanks to [SQLPerformance.com](https://sqlperformance.com/2013/01/t-sql-queries/generate-a-set-1) for the idea.
+The performance tests are against a dataset of a million rows, [generated from sys.all_objects](https://sqlperformance.com/2013/01/t-sql-queries/generate-a-set-1).
 
 ## Performance Test Results
 
@@ -30,7 +30,8 @@ I noticed that one of the cores on my computer was consistently pegged at 100%, 
 
 ## Performance Tests
 
-* There are 6 perf test scripts, one per function, plus a 'baseline' script.
+There are 6 perf test scripts, one per function, plus a 'baseline' script.
+
 
 * [Baseline](/test/perf-test-baseline.sql)
 * [Match](/test/perf-test-match.sql)
@@ -38,6 +39,7 @@ I noticed that one of the cores on my computer was consistently pegged at 100%, 
 * [GroupMatch](/test/perf-test-groupmatch.sql)
 * [Split](/test/perf-test-split.sql)
 * [Replace](/test/perf-test-replace.sql)
+
 
 ## Running the Tests
 

@@ -51,7 +51,7 @@ You can also install sql-server-regex onto [AWS RDS](/install/aws-rds.md).
 
 # Testing
 
-This work has been tested, both for functionality and performance. See for yourself at:
+This work has been tested, both for functionality and performance.
 
 * [Unit Testing](/test/unit-tests.md)
 * [Performance Testing](/test/perf-tests.md)
