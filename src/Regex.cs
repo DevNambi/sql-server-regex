@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 public partial class UDF
 {
-    [Microsoft.SqlServer.Server.SqlFunction(IsDeterministic = true, IsPrecise = true)]
+    [Microsoft.SqlServer.Server.SqlFunction(IsDeterministic = true)]
     public static SqlString Match(String input, String pattern)
     {
         if (String.IsNullOrEmpty(input) || String.IsNullOrEmpty(pattern))
@@ -16,8 +16,7 @@ public partial class UDF
         }
         else
         {
-            Regex r = new Regex(pattern);
-            Match m = r.Match(input);
+            Match m = Regex.Match(input, pattern);
 
             return new SqlString(m.Success ? m.Value : null);
         }
@@ -32,8 +31,7 @@ public partial class UDF
         }
         else
         { 
-            Regex r = new Regex(pattern);
-            Group g = r.Match(input).Groups[group];
+            Group g = Regex.Match(input, pattern).Groups[group];
 
             return new SqlString(g.Success ? g.Value : null);
         }
@@ -48,8 +46,7 @@ public partial class UDF
         }
         else
         {
-            Regex r = new Regex(pattern);
-            return new SqlString(r.Replace(input, replacement));
+            return new SqlString(Regex.Replace(input, pattern, replacement));
         }
     }
 
