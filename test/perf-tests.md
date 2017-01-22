@@ -16,10 +16,10 @@ Each test is run 10 times, and you're seeing the average runtime. You can also l
 | Test Category | Simple | Complex | Null |
 | ------------- |:------:| :------:| ----:|
 | Baseline      |  0.49  | 0.62    | N/A  |
-| Match         | 14.05  | 19.25   | 5.33 |
-| GroupMatch    | 18.35  | 21.31   |  |
+| Match         |  9.01  | 12.57   | 5.33 |
+| GroupMatch    | 17.54  | 20.79   |  |
 | Matches       | 28.09  | 22.14   |  |
-| Replace       | 24.03  | 21.56   |  |
+| Replace       | 22.96  | 21.10   |  |
 | Split         | 28.00  | 23.84   |  |
 
 **Analysis**
@@ -27,6 +27,8 @@ Each test is run 10 times, and you're seeing the average runtime. You can also l
 The SQL CLR functions are *slow*. Even calling the simplest function with a null value, RegexMatch(), takes ~10 times longer than the baseline query, 5 seconds vs .5 seconds. Relatively simple regular expressions are slow.
 
 I noticed that one of the cores on my computer was consistently pegged at 100%, suggesting that the limitation was CPU. That makes sense; both the CLR and regular expressions are relatively CPU heavy.
+
+*Update, 2017-01-21* - Using static methods in the Regex() class boosts performance, up to 35% in some cases.
 
 ## Performance Tests
 
