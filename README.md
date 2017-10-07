@@ -49,6 +49,7 @@ You can install sql-server-regex on most versions of SQL Server. This works the 
 
 You can also install sql-server-regex onto [AWS RDS](/install/aws-rds.md).
 
+*Note: for SQL Server 2005, 2008, and 2008R2, if you can't install the DLL directly, you may you need to compile the assembly yourself using .NET 2.0 and an old version of Visual Studio*.
 
 # Testing
 
