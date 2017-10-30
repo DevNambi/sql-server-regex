@@ -40,7 +40,8 @@ public partial class UDF
     [Microsoft.SqlServer.Server.SqlFunction(IsDeterministic = true, IsPrecise = true)]
     public static SqlString Replace(String input, String pattern, String replacement)
     {
-        if (String.IsNullOrEmpty(input) || String.IsNullOrEmpty(pattern) || String.IsNullOrEmpty(replacement))
+        // the replacement string is not checked for an empty string because that is a valid replacement pattern
+        if (String.IsNullOrEmpty(input) || String.IsNullOrEmpty(pattern) || replacement == null)
         {
             return new SqlString(null);
         }
