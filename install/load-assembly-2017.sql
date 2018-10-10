@@ -31,7 +31,6 @@ go
 
 
 -- Second, drop the assembly and remove trust if it already exists
-drop assembly RegexAssembly
 IF (SELECT COUNT(1) FROM sys.trusted_assemblies WHERE description like 'sql-server-regex%')=1
 BEGIN
 	declare @AssemblyHash varbinary(64);
@@ -49,6 +48,8 @@ EXEC sp_add_trusted_assembly
 declare @AssemblyLocation varchar(8000);
 
 set @AssemblyLocation = '--SET LOCATION HERE, e.g. C:\Install\sql-server-regex-2016.dll'
+
+drop assembly IF EXISTS RegexAssembly
 
 CREATE ASSEMBLY RegexAssembly  
 FROM  @AssemblyLocation
