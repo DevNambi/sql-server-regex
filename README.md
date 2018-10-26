@@ -32,7 +32,7 @@ The [RegexReplace()](/examples/replace.md) scalar function lets you call a regul
 
 ### Split
 
-The [RegexSplit()](/examples/split.md) table-valued function lets pass a regular expression against a string to split it into pieces, and returns the pieces.
+The [RegexSplit()](/examples/split.md) table-valued function lets you call a regular expression against a string to split it into pieces, and returns the pieces.
 
 ![Split SSMS example](/images/split-1.png)
 
